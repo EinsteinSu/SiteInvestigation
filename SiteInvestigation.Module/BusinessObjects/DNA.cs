@@ -20,10 +20,10 @@ namespace SiteInvestigation.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    [XafDisplayName("指纹提取数")]
-    public class FingerPrint : BaseObject
+    [XafDisplayName("DNA提取数")]
+    public class DNA : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public FingerPrint(Session session)
+        public DNA(Session session)
             : base(session)
         {
         }
@@ -43,9 +43,8 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
-
         private Police _ExtractPolice;
-        [Association(FKCollection.FINGRE_EXTRACT_POLICE)]
+        [Association(FKCollection.DNA_EXTRACT_POLICE)]
         [XafDisplayName("提取人")]
         public Police ExtractPolice
         {
@@ -64,19 +63,8 @@ namespace SiteInvestigation.Module.BusinessObjects
 
 
 
-        private Police _Processor;
-        [Association(FKCollection.FINGRE_PROCESSOR_POLICE)]
-        [XafDisplayName("处理人")]
-        public Police Processor
-        {
-            get { return _Processor; }
-            set { SetPropertyValue<Police>(nameof(Processor), ref _Processor, value); }
-        }
-
-
-
         private Criminal _Criminal;
-        [Association(FKCollection.CRIMINAL_FINGRE)]
+        [Association(FKCollection.DNA_CRIMINAL)]
         [XafDisplayName("嫌疑人")]
         public Criminal Criminal
         {
@@ -85,8 +73,18 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
+        private Police _Processor;
+        [Association(FKCollection.DNA_PROCESSOR_POLICE)]
+        [XafDisplayName("处理人")]
+        public Police Processor
+        {
+            get { return _Processor; }
+            set { SetPropertyValue<Police>(nameof(Processor), ref _Processor, value); }
+        }
+
+
         private Case _Case;
-        [Association(FKCollection.CASE_FINGREPRINT)]
+        [Association(FKCollection.CASE_DNA)]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
         public Case Case

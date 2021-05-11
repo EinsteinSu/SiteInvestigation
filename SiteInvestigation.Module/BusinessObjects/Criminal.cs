@@ -91,6 +91,31 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
+        [Association(FKCollection.VIDEO_CRIMINAL)]
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public XPCollection<Video> Videos
+        {
+            get { return GetCollection<Video>(nameof(Videos)); }
+        }
+
+
+        [Association(FKCollection.DNA_CRIMINAL)]
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public XPCollection<DNA> DNAs
+        {
+            get { return GetCollection<DNA>(nameof(DNAs)); }
+        }
+
+
+        [Association(FKCollection.FOOT_CRIMINAL)]
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public XPCollection<FootPrint> FootPrints
+        {
+            get { return GetCollection<FootPrint>(nameof(FootPrints)); }
+        }
 
 
         //private string _PersistentProperty;

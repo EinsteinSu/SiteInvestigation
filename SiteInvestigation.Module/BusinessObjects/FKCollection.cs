@@ -34,5 +34,39 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         public const string CASE_FINGREPRINT = "Case-FingrePrint";
 
+        public const string VIDEO_EXTRACT_POLICE = "Video-Extract-Police";
+
+        public const string VIDEO_PROCESSOR_POLICE = "Video-Processor-Police";
+
+        public const string VIDEO_CRIMINAL = "Video-Criminal";
+
+        public const string CASE_VIDEO = "Case-Video";
+
+        public const string DNA_EXTRACT_POLICE = "DNA-Extract-Police";
+
+        public const string DNA_PROCESSOR_POLICE = "DNA-Processor-Police";
+
+        public const string DNA_CRIMINAL = "DNA-Criminal";
+
+        public const string CASE_DNA = "Case-DNA";
+
+        public const string FOOT_EXTRACT_POLICE = "Foot-Extract-Police";
+
+        public const string FOOT_CRIMINAL = "Foot-Criminal";
+
+        public const string FOOT_PROCESSOR_POLICE = "Foot-Processor-Police";
+
+        public const string CASE_FOOT = "Case-Foot";
+
+        public const string CASE_FINANCIALTYPE = "Case-FinancialType";
+
+        public const string CASE_INBREAKTIME = "Case-InBreakTime";
+
+        public const string CASE_INBREAKPLACE = "Case-InBreakPlace";
+
+        public const string CASE_INBREAKMETHOD = "Case-InBreakMethod";
+
+        public const string CASE_INBREAKHABIT = "Case-InBreakHabit";
+
     }
 }

@@ -5,7 +5,10 @@
       <Item Id="@74d5159c-4b52-4e51-b0b6-a28685471961" Index="0" Caption="案件管理" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Case_ListView" ViewId="Case_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+          <Item Id="DNA_ListView" ViewId="DNA_ListView" ObjectKey="" Index="1" IsNewNode="True" />
           <Item Id="FingerPrint_ListView" ViewId="FingerPrint_ListView" ObjectKey="" Index="2" IsNewNode="True" />
+          <Item Id="Video_ListView" ViewId="Video_ListView" ObjectKey="" Index="3" IsNewNode="True" />
+          <Item Id="FootPrint_ListView" ViewId="FootPrint_ListView" ObjectKey="" Index="4" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="@54a10c79-81cb-4ebb-80f3-de1188bcbaf0" Caption="用户管理" Index="3" IsNewNode="True">
@@ -22,17 +25,34 @@
           <Item Id="Criminal_ListView" ViewId="Criminal_ListView" ObjectKey="" IsNewNode="True" />
         </Items>
       </Item>
+      <Item Id="@8fdb2696-90d9-4659-87af-228a40a2c14f" Caption="研判数据管理" Index="4" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="FinancialType_ListView" ViewId="FinancialType_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="InBreakHabit_ListView" ViewId="InBreakHabit_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="InBreakMethod_ListView" ViewId="InBreakMethod_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="InBreakPlace_ListView" ViewId="InBreakPlace_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="InBreakTime_ListView" ViewId="InBreakTime_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
       <Item Id="@4494f5a1-b7da-4e79-85fc-d6aaba8fce39" Index="9" Caption="系统管理" IsNewNode="True" />
       <Item Id="Default">
         <Items>
           <Item Id="Case_ListView" Removed="True" />
           <Item Id="Criminal_ListView" Removed="True" />
           <Item Id="Department_ListView" Removed="True" />
+          <Item Id="DNA_ListView" Removed="True" />
+          <Item Id="FinancialType_ListView" Removed="True" />
           <Item Id="FingerPrint_ListView" Removed="True" />
+          <Item Id="FootPrint_ListView" Removed="True" />
           <Item Id="Group_ListView" Removed="True" />
+          <Item Id="InBreakHabit_ListView" Removed="True" />
+          <Item Id="InBreakMethod_ListView" Removed="True" />
+          <Item Id="InBreakPlace_ListView" Removed="True" />
+          <Item Id="InBreakTime_ListView" Removed="True" />
           <Item Id="Police_ListView" Removed="True" />
           <Item Id="PoliceStation_ListView" Removed="True" />
           <Item Id="Position_ListView" Removed="True" />
+          <Item Id="Video_ListView" Removed="True" />
         </Items>
       </Item>
     </Items>

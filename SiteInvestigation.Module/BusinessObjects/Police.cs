@@ -29,6 +29,7 @@ namespace SiteInvestigation.Module.BusinessObjects
             : base(session)
         {
         }
+
         public override void AfterConstruction()
         {
             base.AfterConstruction();
@@ -37,7 +38,7 @@ namespace SiteInvestigation.Module.BusinessObjects
 
 
         private string _Number;
-        [DisplayName("警告")]
+        [DisplayName("警号")]
         public string Number
         {
             get { return _Number; }
@@ -129,9 +130,64 @@ namespace SiteInvestigation.Module.BusinessObjects
         [Association(FKCollection.FINGRE_PROCESSOR_POLICE)]
         [VisibleInListView(false)]
         [VisibleInDetailView(false)]
-        public XPCollection<FingerPrint> FingerPrintsProcessor
+        public XPCollection<FingerPrint> FingerPrintsProcessors
         {
-            get { return GetCollection<FingerPrint>(nameof(FingerPrintsProcessor)); }
+            get { return GetCollection<FingerPrint>(nameof(FingerPrintsProcessors)); }
+        }
+
+
+
+        [Association(FKCollection.VIDEO_EXTRACT_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<Video> VideoExtractors
+        {
+            get { return GetCollection<Video>(nameof(VideoExtractors)); }
+        }
+
+
+        [Association(FKCollection.VIDEO_PROCESSOR_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<Video> VideoProcessors
+        {
+            get { return GetCollection<Video>(nameof(VideoProcessors)); }
+        }
+
+
+        [Association(FKCollection.DNA_EXTRACT_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<DNA> DNAExtractors
+        {
+            get { return GetCollection<DNA>(nameof(DNAExtractors)); }
+        }
+
+
+        [Association(FKCollection.DNA_PROCESSOR_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<DNA> DNAProcessors
+        {
+            get { return GetCollection<DNA>(nameof(DNAProcessors)); }
+        }
+
+
+        [Association(FKCollection.FOOT_EXTRACT_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<FootPrint> FootPrintExtractors
+        {
+            get { return GetCollection<FootPrint>(nameof(FootPrintExtractors)); }
+        }
+
+
+        [Association(FKCollection.FOOT_PROCESSOR_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<FootPrint> FootPrintProcessors
+        {
+            get { return GetCollection<FootPrint>(nameof(FootPrintProcessors)); }
         }
 
 

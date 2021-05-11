@@ -144,6 +144,77 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
+        [Association(FKCollection.CASE_VIDEO)]
+        [XafDisplayName("视频提取数")]
+        public XPCollection<Video> Videos
+        {
+            get { return GetCollection<Video>(nameof(Videos)); }
+        }
+
+
+        [Association(FKCollection.CASE_DNA)]
+        [XafDisplayName("DNA提取数")]
+        public XPCollection<DNA> DNAs
+        {
+            get { return GetCollection<DNA>(nameof(DNAs)); }
+        }
+
+
+        [Association(FKCollection.CASE_FOOT)]
+        [XafDisplayName("足迹提取数")]
+        public XPCollection<FootPrint> FootPrints
+        {
+            get { return GetCollection<FootPrint>(nameof(FootPrints)); }
+        }
+
+        [Association(FKCollection.CASE_INBREAKTIME)]
+        [XafDisplayName("入侵时间")]
+        public XPCollection<InBreakTime> InBreakTimes
+        {
+            get { return GetCollection<InBreakTime>(nameof(InBreakTimes)); }
+        }
+
+
+        [Association(FKCollection.CASE_INBREAKPLACE)]
+        [XafDisplayName("入侵场所")]
+        public XPCollection<InBreakPlace> InBreakPlaces
+        {
+            get { return GetCollection<InBreakPlace>(nameof(InBreakPlaces)); }
+        }
+
+
+        [Association(FKCollection.CASE_INBREAKMETHOD)]
+        [XafDisplayName("入侵方式")]
+        public XPCollection<InBreakMethod> InBreakMethods
+        {
+            get { return GetCollection<InBreakMethod>(nameof(InBreakMethods)); }
+        }
+
+
+        [Association(FKCollection.CASE_INBREAKHABIT)]
+        [XafDisplayName("入侵习惯")]
+        public XPCollection<InBreakHabit> InBreakHabits
+        {
+            get { return GetCollection<InBreakHabit>(nameof(InBreakHabits)); }
+        }
+
+        [Association(FKCollection.CASE_FINANCIALTYPE)]
+        [XafDisplayName("损失财务类型")]
+        public XPCollection<FinancialType> FinancialTypes
+        {
+            get { return GetCollection<FinancialType>(nameof(FinancialTypes)); }
+        }
+
+
+        private string _ResearchJudgeDescription;
+        [XafDisplayName("研判备注")]
+        public string ResearchJudgeDescription
+        {
+            get { return _ResearchJudgeDescription; }
+            set { SetPropertyValue<string>(nameof(ResearchJudgeDescription), ref _ResearchJudgeDescription, value); }
+        }
+
+
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]

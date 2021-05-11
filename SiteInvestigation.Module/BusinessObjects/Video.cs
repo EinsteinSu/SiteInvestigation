@@ -20,10 +20,10 @@ namespace SiteInvestigation.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    [XafDisplayName("指纹提取数")]
-    public class FingerPrint : BaseObject
+    [XafDisplayName("视频提取数")]
+    public class Video : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public FingerPrint(Session session)
+        public Video(Session session)
             : base(session)
         {
         }
@@ -34,18 +34,8 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
-        private string _Number;
-        [XafDisplayName("物证编号")]
-        public string Number
-        {
-            get { return _Number; }
-            set { SetPropertyValue<string>(nameof(Number), ref _Number, value); }
-        }
-
-
-
         private Police _ExtractPolice;
-        [Association(FKCollection.FINGRE_EXTRACT_POLICE)]
+        [Association(FKCollection.VIDEO_EXTRACT_POLICE)]
         [XafDisplayName("提取人")]
         public Police ExtractPolice
         {
@@ -54,18 +44,16 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
-        private bool _Stored;
-        [XafDisplayName("是否入库")]
-        public bool Stored
+        [Association(FKCollection.VIDEO_CRIMINAL)]
+        [XafDisplayName("嫌疑人")]
+        public XPCollection<Criminal> Criminals
         {
-            get { return _Stored; }
-            set { SetPropertyValue<bool>(nameof(Stored), ref _Stored, value); }
+            get { return GetCollection<Criminal>(nameof(Criminals)); }
         }
 
 
-
         private Police _Processor;
-        [Association(FKCollection.FINGRE_PROCESSOR_POLICE)]
+        [Association(FKCollection.VIDEO_PROCESSOR_POLICE)]
         [XafDisplayName("处理人")]
         public Police Processor
         {
@@ -73,20 +61,9 @@ namespace SiteInvestigation.Module.BusinessObjects
             set { SetPropertyValue<Police>(nameof(Processor), ref _Processor, value); }
         }
 
-
-
-        private Criminal _Criminal;
-        [Association(FKCollection.CRIMINAL_FINGRE)]
-        [XafDisplayName("嫌疑人")]
-        public Criminal Criminal
-        {
-            get { return _Criminal; }
-            set { SetPropertyValue<Criminal>(nameof(Criminal), ref _Criminal, value); }
-        }
-
-
         private Case _Case;
-        [Association(FKCollection.CASE_FINGREPRINT)]
+        [Association(FKCollection.CASE_VIDEO)]
+        [XafDisplayName("案件")]
         [VisibleInDetailView(false)]
         [VisibleInListView(false)]
         public Case Case
@@ -94,21 +71,5 @@ namespace SiteInvestigation.Module.BusinessObjects
             get { return _Case; }
             set { SetPropertyValue<Case>(nameof(Case), ref _Case, value); }
         }
-
-
-        //private string _PersistentProperty;
-        //[XafDisplayName("My display name"), ToolTip("My hint message")]
-        //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
-        //[Persistent("DatabaseColumnName"), RuleRequiredField(DefaultContexts.Save)]
-        //public string PersistentProperty {
-        //    get { return _PersistentProperty; }
-        //    set { SetPropertyValue(nameof(PersistentProperty), ref _PersistentProperty, value); }
-        //}
-
-        //[Action(Caption = "My UI Action", ConfirmationMessage = "Are you sure?", ImageName = "Attention", AutoCommit = true)]
-        //public void ActionMethod() {
-        //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
-        //    this.PersistentProperty = "Paid";
-        //}
     }
 }

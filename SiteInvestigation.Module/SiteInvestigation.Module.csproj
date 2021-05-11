@@ -215,12 +215,20 @@
     <Compile Include="BusinessObjects\Case.cs" />
     <Compile Include="BusinessObjects\Criminal.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
+    <Compile Include="BusinessObjects\DNA.cs" />
+    <Compile Include="BusinessObjects\FinancialType.cs" />
     <Compile Include="BusinessObjects\FingerPrint.cs" />
     <Compile Include="BusinessObjects\FKCollection.cs" />
+    <Compile Include="BusinessObjects\FootPrint.cs" />
     <Compile Include="BusinessObjects\Group.cs" />
+    <Compile Include="BusinessObjects\InBreakHabit.cs" />
+    <Compile Include="BusinessObjects\InBreakMethod.cs" />
+    <Compile Include="BusinessObjects\InBreakPlace.cs" />
+    <Compile Include="BusinessObjects\InBreakTime.cs" />
     <Compile Include="BusinessObjects\Police.cs" />
     <Compile Include="BusinessObjects\PoliceStation.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
+    <Compile Include="BusinessObjects\Video.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>

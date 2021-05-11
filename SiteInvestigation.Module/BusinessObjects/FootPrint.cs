@@ -20,10 +20,10 @@ namespace SiteInvestigation.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    [XafDisplayName("指纹提取数")]
-    public class FingerPrint : BaseObject
+    [XafDisplayName("足迹提取数")]
+    public class FootPrint : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public FingerPrint(Session session)
+        public FootPrint(Session session)
             : base(session)
         {
         }
@@ -33,7 +33,6 @@ namespace SiteInvestigation.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-
         private string _Number;
         [XafDisplayName("物证编号")]
         public string Number
@@ -42,10 +41,8 @@ namespace SiteInvestigation.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(Number), ref _Number, value); }
         }
 
-
-
         private Police _ExtractPolice;
-        [Association(FKCollection.FINGRE_EXTRACT_POLICE)]
+        [Association(FKCollection.FOOT_EXTRACT_POLICE)]
         [XafDisplayName("提取人")]
         public Police ExtractPolice
         {
@@ -62,10 +59,8 @@ namespace SiteInvestigation.Module.BusinessObjects
             set { SetPropertyValue<bool>(nameof(Stored), ref _Stored, value); }
         }
 
-
-
         private Police _Processor;
-        [Association(FKCollection.FINGRE_PROCESSOR_POLICE)]
+        [Association(FKCollection.FOOT_PROCESSOR_POLICE)]
         [XafDisplayName("处理人")]
         public Police Processor
         {
@@ -76,7 +71,7 @@ namespace SiteInvestigation.Module.BusinessObjects
 
 
         private Criminal _Criminal;
-        [Association(FKCollection.CRIMINAL_FINGRE)]
+        [Association(FKCollection.FOOT_CRIMINAL)]
         [XafDisplayName("嫌疑人")]
         public Criminal Criminal
         {
@@ -84,17 +79,15 @@ namespace SiteInvestigation.Module.BusinessObjects
             set { SetPropertyValue<Criminal>(nameof(Criminal), ref _Criminal, value); }
         }
 
-
         private Case _Case;
-        [Association(FKCollection.CASE_FINGREPRINT)]
-        [VisibleInDetailView(false)]
-        [VisibleInListView(false)]
+        [Association(FKCollection.CASE_FOOT)]
         public Case Case
         {
             get { return _Case; }
             set { SetPropertyValue<Case>(nameof(Case), ref _Case, value); }
         }
 
+        //todo: display the cases which related to this foot
 
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]

@@ -20,10 +20,10 @@ namespace SiteInvestigation.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    [XafDisplayName("指纹提取数")]
-    public class FingerPrint : BaseObject
+    [XafDisplayName("入侵场所")]
+    public class InBreakPlace : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public FingerPrint(Session session)
+        public InBreakPlace(Session session)
             : base(session)
         {
         }
@@ -34,67 +34,31 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
-        private string _Number;
-        [XafDisplayName("物证编号")]
-        public string Number
+        private string _Name;
+        [XafDisplayName("名称")]
+        public string Name
         {
-            get { return _Number; }
-            set { SetPropertyValue<string>(nameof(Number), ref _Number, value); }
+            get { return _Name; }
+            set { SetPropertyValue<string>(nameof(Name), ref _Name, value); }
         }
 
 
-
-        private Police _ExtractPolice;
-        [Association(FKCollection.FINGRE_EXTRACT_POLICE)]
-        [XafDisplayName("提取人")]
-        public Police ExtractPolice
+        private string _Description;
+        [XafDisplayName("备注")]
+        public string Description
         {
-            get { return _ExtractPolice; }
-            set { SetPropertyValue<Police>(nameof(ExtractPolice), ref _ExtractPolice, value); }
+            get { return _Description; }
+            set { SetPropertyValue<string>(nameof(Description), ref _Description, value); }
         }
 
 
-        private bool _Stored;
-        [XafDisplayName("是否入库")]
-        public bool Stored
-        {
-            get { return _Stored; }
-            set { SetPropertyValue<bool>(nameof(Stored), ref _Stored, value); }
-        }
-
-
-
-        private Police _Processor;
-        [Association(FKCollection.FINGRE_PROCESSOR_POLICE)]
-        [XafDisplayName("处理人")]
-        public Police Processor
-        {
-            get { return _Processor; }
-            set { SetPropertyValue<Police>(nameof(Processor), ref _Processor, value); }
-        }
-
-
-
-        private Criminal _Criminal;
-        [Association(FKCollection.CRIMINAL_FINGRE)]
-        [XafDisplayName("嫌疑人")]
-        public Criminal Criminal
-        {
-            get { return _Criminal; }
-            set { SetPropertyValue<Criminal>(nameof(Criminal), ref _Criminal, value); }
-        }
-
-
-        private Case _Case;
-        [Association(FKCollection.CASE_FINGREPRINT)]
-        [VisibleInDetailView(false)]
+        [Association(FKCollection.CASE_INBREAKPLACE)]
         [VisibleInListView(false)]
-        public Case Case
+        [VisibleInDetailView(false)]
+        public XPCollection<Case> Cases
         {
-            get { return _Case; }
-            set { SetPropertyValue<Case>(nameof(Case), ref _Case, value); }
+            get { return GetCollection<Case>(nameof(Cases)); }
         }
-
 
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
