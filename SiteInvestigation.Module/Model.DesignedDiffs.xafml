@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="SiteInvestigation">
+  <NavigationItems>
+    <Items>
+      <Item Id="@74d5159c-4b52-4e51-b0b6-a28685471961" Index="0" Caption="案件管理" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Case_ListView" ViewId="Case_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+          <Item Id="FingerPrint_ListView" ViewId="FingerPrint_ListView" ObjectKey="" Index="2" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@54a10c79-81cb-4ebb-80f3-de1188bcbaf0" Caption="用户管理" Index="3" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Department_ListView" ViewId="Department_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Group_ListView" ViewId="Group_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Police_ListView" ViewId="Police_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="PoliceStation_ListView" ViewId="PoliceStation_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Position_ListView" ViewId="Position_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@493f3d3b-7778-41ee-be0d-d75bbfd2d83d" Caption="嫌疑人" Index="4" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Criminal_ListView" ViewId="Criminal_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@4494f5a1-b7da-4e79-85fc-d6aaba8fce39" Index="9" Caption="系统管理" IsNewNode="True" />
+      <Item Id="Default">
+        <Items>
+          <Item Id="Case_ListView" Removed="True" />
+          <Item Id="Criminal_ListView" Removed="True" />
+          <Item Id="Department_ListView" Removed="True" />
+          <Item Id="FingerPrint_ListView" Removed="True" />
+          <Item Id="Group_ListView" Removed="True" />
+          <Item Id="Police_ListView" Removed="True" />
+          <Item Id="PoliceStation_ListView" Removed="True" />
+          <Item Id="Position_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.1.4.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

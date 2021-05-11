@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="ExpressAppLogo">
+  <NavigationItems NavigationStyle="Accordion" ShowImages="False" DefaultChildItemsDisplayStyle="List">
+    <Items>
+      <Item Id="@4494f5a1-b7da-4e79-85fc-d6aaba8fce39">
+        <Items>
+          <Item Id="MyDetails" ViewId="PermissionPolicyUser_DetailView" ObjectKey="@CurrentUserID" Caption="My Details" ImageName="BO_MyDetails" IsNewNode="True" />
+          <Item Id="PermissionPolicyRole_ListView" ViewId="PermissionPolicyRole_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items>
+          <Item Id="MyDetails" Removed="True" />
+          <Item Id="PermissionPolicyRole_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UIType="TabbedMDI" FormStyle="Ribbon" ShowTabImage="False">
+    <LayoutManagerOptions EnableLayoutGroupImages="False" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="20.1.4.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

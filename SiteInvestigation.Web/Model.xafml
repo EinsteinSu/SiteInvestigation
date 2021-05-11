@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="@4494f5a1-b7da-4e79-85fc-d6aaba8fce39">
+        <Items>
+          <Item Id="MyDetails" ViewId="PermissionPolicyUser_DetailView" ObjectKey="@CurrentUserID" Caption="我的信息" ImageName="BO_MyDetails" IsNewNode="True" />
+          <Item Id="PermissionPolicyRole_ListView" ViewId="PermissionPolicyRole_ListView" ObjectKey="" Caption="角色管理" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items>
+          <Item Id="MyDetails" Removed="True" />
+          <Item Id="PermissionPolicyRole_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerAspNetModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.1.4.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="PermissionPolicyRole_ListView">
+      <Columns>
+        <ColumnInfo Id="PermissionPolicy" Caption="权限" />
+        <ColumnInfo Id="Name" Caption="角色名" />
+        <ColumnInfo Id="IsAdministrative" Caption="是否是系统管理员" />
+        <ColumnInfo Id="CanEditModel" Caption="可修改模型" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyUser_DetailView">
+      <Items>
+        <PropertyEditor Id="ChangePasswordOnFirstLogon" Caption="强制修改密码" />
+        <PropertyEditor Id="IsActive" Caption="是否激活" />
+        <PropertyEditor Id="Roles" Caption="权限" />
+        <PropertyEditor Id="UserName" Caption="登录名" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>
