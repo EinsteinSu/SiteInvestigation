@@ -213,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\Case.cs" />
+    <Compile Include="BusinessObjects\CaseLinking.cs" />
     <Compile Include="BusinessObjects\Criminal.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
     <Compile Include="BusinessObjects\DNA.cs" />
@@ -228,8 +229,10 @@
     <Compile Include="BusinessObjects\Police.cs" />
     <Compile Include="BusinessObjects\PoliceStation.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
+    <Compile Include="BusinessObjects\SiteNotification.cs" />
     <Compile Include="BusinessObjects\Video.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -259,6 +262,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

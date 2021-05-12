@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Case_ListView_Analyze">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ResearchJudgeDescription" PropertyName="ResearchJudgeDescription" Width="70" Index="9" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Case_DetailView_Initial">
+      <Items Id="Items">
+        <PropertyEditor Id="ResearchJudgeDescription" PropertyName="ResearchJudgeDescription" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Case">
+              <LayoutGroup Id="Case_col2">
+                <LayoutItem Id="ResearchJudgeDescription" ViewItem="ResearchJudgeDescription" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Case_DetailView_Analyze">
+      <Items Id="Items">
+        <PropertyEditor Id="ResearchJudgeDescription" PropertyName="ResearchJudgeDescription" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutItem Id="ResearchJudgeDescription" ViewItem="ResearchJudgeDescription" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Case_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ResearchJudgeDescription" Index="-1" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

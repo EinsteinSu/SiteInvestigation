@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
 
 namespace SiteInvestigation.Module.BusinessObjects
 {
@@ -21,10 +20,10 @@ namespace SiteInvestigation.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    [XafDisplayName("勘察组管理")]
-    public class Group : BaseObject
+    [XafDisplayName("案件串并")]
+    public class CaseLinking : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public Group(Session session)
+        public CaseLinking(Session session)
             : base(session)
         {
         }
@@ -36,36 +35,52 @@ namespace SiteInvestigation.Module.BusinessObjects
 
 
         private string _Name;
-        [DisplayName("名称")]
+        [XafDisplayName("串并名称")]
         public string Name
         {
             get { return _Name; }
             set { SetPropertyValue<string>(nameof(Name), ref _Name, value); }
         }
 
-        private string _Description;
-        [DisplayName("备注")]
-        public string Description
-        {
-            get { return _Description; }
-            set { SetPropertyValue<string>(nameof(Description), ref _Description, value); }
-        }
 
-        [Association(FKCollection.GROUP_POLICE)]
-        [XafDisplayName("勘察组成员")]
-        public XPCollection<Police> Polices
+
+        private string _Gist;
+        [XafDisplayName("串并依据")]
+        [Size(1000)]
+        public string Gist
         {
-            get { return GetCollection<Police>(nameof(Polices)); }
+            get { return _Gist; }
+            set { SetPropertyValue<string>(nameof(Gist), ref _Gist, value); }
         }
 
 
-        [Association(FKCollection.CASE_GROUP)]
-        [VisibleInListView(false)]
-        [VisibleInDetailView(false)]
+        private DateTime _LinkingTime;
+        [XafDisplayName("串并时间")]
+        public DateTime LinkingTime
+        {
+            get { return _LinkingTime; }
+            set { SetPropertyValue<DateTime>(nameof(LinkingTime), ref _LinkingTime, value); }
+        }
+
+
+        [Association(FKCollection.CASE_LINKING)]
+        [XafDisplayName("串并案件")]
         public XPCollection<Case> Cases
         {
             get { return GetCollection<Case>(nameof(Cases)); }
         }
+
+
+        private Police _Processor;
+        [Association(FKCollection.CASELINKING_POLICE)]
+        [XafDisplayName("串并人")]
+        public Police Processor
+        {
+            get { return _Processor; }
+            set { SetPropertyValue<Police>(nameof(Processor), ref _Processor, value); }
+        }
+
+
 
 
         //private string _PersistentProperty;

@@ -1,2 +1,15 @@
-﻿<?xml version="1.0" ?>
-<Application />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="Workflow" Visible="False" />
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.1.4.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="20.1.4.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

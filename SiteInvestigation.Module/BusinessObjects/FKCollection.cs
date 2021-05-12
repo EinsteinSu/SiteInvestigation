@@ -68,5 +68,11 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         public const string CASE_INBREAKHABIT = "Case-InBreakHabit";
 
+        public const string NOTIFICATION_POLICE = "Notification-Police";
+
+        public const string CASE_LINKING = "Case-Linking";
+
+        public const string CASELINKING_POLICE = "Case-Linking-Police";
+
     }
 }

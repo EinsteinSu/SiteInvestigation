@@ -191,6 +191,23 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
+        [Association(FKCollection.NOTIFICATION_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<SiteNotification> Notifications
+        {
+            get { return GetCollection<SiteNotification>(nameof(Notifications)); }
+        }
+
+
+        [Association(FKCollection.CASELINKING_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<CaseLinking> CaseLinkings
+        {
+            get { return GetCollection<CaseLinking>(nameof(CaseLinkings)); }
+        }
+
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]

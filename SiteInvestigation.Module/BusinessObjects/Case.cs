@@ -30,6 +30,9 @@ namespace SiteInvestigation.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+
+            CreationUser = Session.GetObjectByKey<Police>(SecuritySystem.CurrentUserId);
+            StartTime = DateTime.Now;
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
@@ -44,24 +47,31 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
-        private CaseNumberType _NumberType;
-        [XafDisplayName("案件号类型")]
-        public CaseNumberType NumberType
+        private string _ANumber;
+        [XafDisplayName("案件A号")]
+        public string ANumber
         {
-            get { return _NumberType; }
-            set { SetPropertyValue<CaseNumberType>(nameof(NumberType), ref _NumberType, value); }
+            get { return _ANumber; }
+            set { SetPropertyValue<string>(nameof(ANumber), ref _ANumber, value); }
         }
 
 
-
-        private string _Number;
-        [XafDisplayName("案件编号")]
-        public string Number
+        private string _JNumber;
+        [XafDisplayName("案件J号")]
+        public string JNumber
         {
-            get { return _Number; }
-            set { SetPropertyValue<string>(nameof(Number), ref _Number, value); }
+            get { return _JNumber; }
+            set { SetPropertyValue<string>(nameof(JNumber), ref _JNumber, value); }
         }
 
+
+        private string _KNumber;
+        [XafDisplayName("案件K号")]
+        public string KNumber
+        {
+            get { return _KNumber; }
+            set { SetPropertyValue<string>(nameof(KNumber), ref _KNumber, value); }
+        }
 
         private DateTime _StartTime;
         [XafDisplayName("接警时间")]
@@ -168,7 +178,7 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
         [Association(FKCollection.CASE_INBREAKTIME)]
-        [XafDisplayName("入侵时间")]
+        [XafDisplayName("入侵时段")]
         public XPCollection<InBreakTime> InBreakTimes
         {
             get { return GetCollection<InBreakTime>(nameof(InBreakTimes)); }
@@ -192,7 +202,7 @@ namespace SiteInvestigation.Module.BusinessObjects
 
 
         [Association(FKCollection.CASE_INBREAKHABIT)]
-        [XafDisplayName("入侵习惯")]
+        [XafDisplayName("行为习惯")]
         public XPCollection<InBreakHabit> InBreakHabits
         {
             get { return GetCollection<InBreakHabit>(nameof(InBreakHabits)); }
@@ -206,14 +216,32 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
-        private string _ResearchJudgeDescription;
-        [XafDisplayName("研判备注")]
-        public string ResearchJudgeDescription
+        private int _NumberOfCriminal;
+        [XafDisplayName("作案人员数")]
+        public int NumberOfCriminal
         {
-            get { return _ResearchJudgeDescription; }
-            set { SetPropertyValue<string>(nameof(ResearchJudgeDescription), ref _ResearchJudgeDescription, value); }
+            get { return _NumberOfCriminal; }
+            set { SetPropertyValue<int>(nameof(NumberOfCriminal), ref _NumberOfCriminal, value); }
         }
 
+
+
+        private string _AnalysisDescription;
+        [XafDisplayName("研判备注")]
+        [Size(3000)]
+        public string AnalysisDescription
+        {
+            get { return _AnalysisDescription; }
+            set { SetPropertyValue<string>(nameof(AnalysisDescription), ref _AnalysisDescription, value); }
+        }
+
+
+        [Association(FKCollection.CASE_LINKING)]
+        [XafDisplayName("串并联案件")]
+        public XPCollection<CaseLinking> Linkings
+        {
+            get { return GetCollection<CaseLinking>(nameof(Linkings)); }
+        }
 
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
@@ -229,11 +257,6 @@ namespace SiteInvestigation.Module.BusinessObjects
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
-    }
-
-    public enum CaseNumberType
-    {
-        案件A号, 案件J号, 案件K号
     }
 
     public enum CaseStatus

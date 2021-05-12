@@ -20,7 +20,7 @@ namespace SiteInvestigation.Module
         public override object Authenticate(IObjectSpace objectSpace)
         {
 #if DEBUG
-            return objectSpace.FindObject(UserType, CriteriaOperator.Parse("UserName = ?", "Admin"));
+            return objectSpace.FindObject(UserType, CriteriaOperator.Parse("UserName = ?", "PolliceAdmin"));
 #else
         return base.Authenticate(objectSpace);
 #endif

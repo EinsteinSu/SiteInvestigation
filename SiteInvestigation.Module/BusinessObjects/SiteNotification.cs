@@ -3,6 +3,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
+using DevExpress.Persistent.Base.General;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
@@ -21,53 +22,62 @@ namespace SiteInvestigation.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    [XafDisplayName("勘察组管理")]
-    public class Group : BaseObject
+    public class SiteNotification : BaseObject, ISupportNotifications
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public Group(Session session)
+        public SiteNotification(Session session)
             : base(session)
         {
         }
+
+        private string _Message;
+        [DisplayName("提醒信息")]
+        public string Message
+        {
+            get { return _Message; }
+            set { SetPropertyValue<string>(nameof(Message), ref _Message, value); }
+        }
+
+        private DateTime? _AlarmTime;
+        [DisplayName("提醒时间")]
+        public DateTime? AlarmTime
+        {
+            get { return _AlarmTime; }
+            set { SetPropertyValue<DateTime?>(nameof(AlarmTime), ref _AlarmTime, value); }
+        }
+
+
+        private bool _IsPostponed;
+        [DisplayName("延迟提醒")]
+        public bool IsPostponed
+        {
+            get { return _IsPostponed; }
+            set { SetPropertyValue<bool>(nameof(IsPostponed), ref _IsPostponed, value); }
+        }
+
+
+        public object UniqueId => Oid;
+
+        public string NotificationMessage => Message;
+
+
+        private Police _NotificatedPolice;
+        [Association(FKCollection.NOTIFICATION_POLICE)]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public Police NotificatedPolice
+        {
+            get { return _NotificatedPolice; }
+            set { SetPropertyValue<Police>(nameof(NotificatedPolice), ref _NotificatedPolice, value); }
+        }
+
+
+
+
         public override void AfterConstruction()
         {
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
-
-
-        private string _Name;
-        [DisplayName("名称")]
-        public string Name
-        {
-            get { return _Name; }
-            set { SetPropertyValue<string>(nameof(Name), ref _Name, value); }
-        }
-
-        private string _Description;
-        [DisplayName("备注")]
-        public string Description
-        {
-            get { return _Description; }
-            set { SetPropertyValue<string>(nameof(Description), ref _Description, value); }
-        }
-
-        [Association(FKCollection.GROUP_POLICE)]
-        [XafDisplayName("勘察组成员")]
-        public XPCollection<Police> Polices
-        {
-            get { return GetCollection<Police>(nameof(Polices)); }
-        }
-
-
-        [Association(FKCollection.CASE_GROUP)]
-        [VisibleInListView(false)]
-        [VisibleInDetailView(false)]
-        public XPCollection<Case> Cases
-        {
-            get { return GetCollection<Case>(nameof(Cases)); }
-        }
-
-
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
