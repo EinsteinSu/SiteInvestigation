@@ -231,6 +231,12 @@
     <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\SiteNotification.cs" />
     <Compile Include="BusinessObjects\Video.cs" />
+    <Compile Include="Controllers\CaseDetailViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CaseDetailViewController.Designer.cs">
+      <DependentUpon>CaseDetailViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Module.cs">
@@ -245,6 +251,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\CaseDetailViewController.resx">
+      <DependentUpon>CaseDetailViewController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
@@ -277,6 +286,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnusableNodes3.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

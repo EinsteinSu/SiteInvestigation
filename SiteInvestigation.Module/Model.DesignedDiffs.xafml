@@ -5,10 +5,10 @@
       <Item Id="@74d5159c-4b52-4e51-b0b6-a28685471961" Index="0" Caption="案件管理" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Case_ListView" ViewId="Case_ListView" ObjectKey="" Index="0" IsNewNode="True" />
-          <Item Id="DNA_ListView" ViewId="DNA_ListView" ObjectKey="" Index="1" IsNewNode="True" />
-          <Item Id="FingerPrint_ListView" ViewId="FingerPrint_ListView" ObjectKey="" Index="2" IsNewNode="True" />
-          <Item Id="Video_ListView" ViewId="Video_ListView" ObjectKey="" Index="3" IsNewNode="True" />
-          <Item Id="FootPrint_ListView" ViewId="FootPrint_ListView" ObjectKey="" Index="4" IsNewNode="True" />
+          <Item Id="DNA_ListView" ObjectKey="" Index="1" ViewId="Case_ListView_DNA" IsNewNode="True" />
+          <Item Id="FingerPrint_ListView" ObjectKey="" Index="2" ViewId="Case_ListView_FingrePrint" IsNewNode="True" />
+          <Item Id="Video_ListView" ObjectKey="" Index="3" ViewId="Case_ListView_Video" IsNewNode="True" />
+          <Item Id="FootPrint_ListView" ObjectKey="" Index="4" ViewId="Case_ListView_FootPrint" IsNewNode="True" />
           <Item Id="@8bdc85c9-3bd2-4cc1-80d2-9593e54a6383" ViewId="Case_ListView_Analyze" Index="8" IsNewNode="True" />
           <Item Id="@701bb8e6-0805-4be8-83ee-8053b87afc2b" ViewId="CaseLinking_ListView" Index="9" IsNewNode="True" />
         </Items>
@@ -143,7 +143,70 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <DetailView Id="Case_DetailView_Initial" ClassName="SiteInvestigation.Module.BusinessObjects.Case" IsNewNode="True">
+    <DetailView Id="Case_DetailView_DNA" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="DNA提取数" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="ANumber" PropertyName="ANumber" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="CreationUser" PropertyName="CreationUser" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Criminals" PropertyName="Criminals" View="Case_Criminals_ListView" LookupEditorMode="AllItemsWithSearch" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Description" PropertyName="Description" LookupEditorMode="AllItems" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="DNAs" PropertyName="DNAs" View="Case_DNAs_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FinancialTypes" PropertyName="FinancialTypes" View="Case_FinancialTypes_ListView" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="FingrePrints" PropertyName="FingrePrints" View="Case_FingrePrints_ListView" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="FootPrints" PropertyName="FootPrints" View="Case_FootPrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Group" PropertyName="Group" AllowEdit="False" IsNewNode="True" />
+        <ActionContainerViewItem Id="groupSelection" ActionContainer="CaseGroupSelection" Caption="选择现勘组" IsNewNode="True" />
+        <PropertyEditor Id="HappenedAddress" PropertyName="HappenedAddress" IsNewNode="True" />
+        <PropertyEditor Id="InBreakHabits" PropertyName="InBreakHabits" View="Case_InBreakHabits_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakMethods" PropertyName="InBreakMethods" View="Case_InBreakMethods_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakPlaces" PropertyName="InBreakPlaces" View="Case_InBreakPlaces_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakTimes" PropertyName="InBreakTimes" View="Case_InBreakTimes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InvestigationPolices" PropertyName="InvestigationPolices" View="Case_InvestigationPolices_ListView_CaseInitial" IsNewNode="True" />
+        <PropertyEditor Id="JNumber" PropertyName="JNumber" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="KNumber" PropertyName="KNumber" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Linkings" PropertyName="Linkings" View="Case_Linkings_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="PoliceStation" PropertyName="PoliceStation" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="StartTime" PropertyName="StartTime" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Status" PropertyName="Status" AllowEdit="False" IsNewNode="True" />
+        <PropertyEditor Id="Videos" PropertyName="Videos" View="Case_Videos_ListView" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="32.603092783505154" IsNewNode="True">
+            <LayoutGroup Id="Case" Index="0" Direction="Vertical" ShowCaption="True" Caption="案件信息" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Case_col1" Index="0" ShowCaption="False" RelativeSize="100" Caption="Case_col1" IsNewNode="True">
+                <LayoutGroup Id="Auto61adf214-cb1d-4269-9c4d-ec932ad206bf" ShowCaption="False" Caption="Auto61adf214-cb1d-4269-9c4d-ec932ad206bf(5)" Direction="Horizontal" Index="0" RelativeSize="21.844660194174757" IsNewNode="True">
+                  <LayoutItem Id="ANumber" ViewItem="ANumber" Index="0" RelativeSize="33.282442748091604" IsNewNode="True" />
+                  <LayoutItem Id="JNumber" ViewItem="JNumber" Index="1" RelativeSize="33.282442748091604" IsNewNode="True" />
+                  <LayoutItem Id="KNumber" ViewItem="KNumber" Index="2" RelativeSize="33.435114503816791" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autob0a56959-9db1-4718-8157-99123aaf8395" ShowCaption="False" Caption="Autob0a56959-9db1-4718-8157-99123aaf8395(9)" Index="1" RelativeSize="78.15533980582525" IsNewNode="True">
+                  <LayoutGroup Id="Auto76e66913-7f2a-4249-9890-2f0105615b9b" ShowCaption="False" Caption="Auto76e66913-7f2a-4249-9890-2f0105615b9b(10)" Direction="Horizontal" Index="0" RelativeSize="26.086956521739129" IsNewNode="True">
+                    <LayoutItem Id="StartTime" ViewItem="StartTime" Index="0" RelativeSize="33.282442748091604" IsNewNode="True" />
+                    <LayoutItem Id="HappenedAddress" ViewItem="HappenedAddress" Index="1" RelativeSize="33.282442748091604" IsNewNode="True" />
+                    <LayoutItem Id="PoliceStation" ViewItem="PoliceStation" Index="2" RelativeSize="33.435114503816791" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto556740e6-e95a-4a80-9b49-f89efab4800b" ShowCaption="False" Caption="Auto556740e6-e95a-4a80-9b49-f89efab4800b(14)" Direction="Vertical" Index="1" RelativeSize="73.913043478260875" IsNewNode="True">
+                    <LayoutGroup Id="Autoe6084db6-2d43-43c6-8217-d8a8a325a7fc" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="28.571428571428573" IsNewNode="True">
+                      <LayoutItem Id="Group" ViewItem="Group" Index="0" RelativeSize="33.282442748091604" IsNewNode="True" />
+                      <LayoutItem Id="CreationUser" ViewItem="CreationUser" Index="1" RelativeSize="33.282442748091604" IsNewNode="True" />
+                      <LayoutItem Id="Status" ViewItem="Status" Index="2" RelativeSize="33.435114503816791" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutItem Id="Description" ShowCaption="True" ViewItem="Description" Index="1" RelativeSize="71.428571428571431" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="67.396907216494839" Caption="简要案情" IsNewNode="True">
+            <LayoutGroup Id="Item2" ShowCaption="True" Caption="DNA取数" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="DNAs" ViewItem="DNAs" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Case_DetailView_FingrePrint" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="指纹提取数" IsNewNode="True">
       <Items IsNewNode="True">
         <PropertyEditor Id="ANumber" PropertyName="ANumber" IsNewNode="True" />
         <PropertyEditor Id="CreationUser" PropertyName="CreationUser" IsNewNode="True" />
@@ -153,13 +216,14 @@
         <PropertyEditor Id="FinancialTypes" PropertyName="FinancialTypes" View="Case_FinancialTypes_ListView" IsNewNode="True" />
         <PropertyEditor Id="FingrePrints" PropertyName="FingrePrints" View="Case_FingrePrints_ListView" IsNewNode="True" />
         <PropertyEditor Id="FootPrints" PropertyName="FootPrints" View="Case_FootPrints_ListView" IsNewNode="True" />
-        <PropertyEditor Id="Group" PropertyName="Group" IsNewNode="True" />
+        <PropertyEditor Id="Group" PropertyName="Group" AllowEdit="False" IsNewNode="True" />
+        <ActionContainerViewItem Id="groupSelection" ActionContainer="CaseGroupSelection" Caption="选择现勘组" IsNewNode="True" />
         <PropertyEditor Id="HappenedAddress" PropertyName="HappenedAddress" IsNewNode="True" />
         <PropertyEditor Id="InBreakHabits" PropertyName="InBreakHabits" View="Case_InBreakHabits_ListView" IsNewNode="True" />
         <PropertyEditor Id="InBreakMethods" PropertyName="InBreakMethods" View="Case_InBreakMethods_ListView" IsNewNode="True" />
         <PropertyEditor Id="InBreakPlaces" PropertyName="InBreakPlaces" View="Case_InBreakPlaces_ListView" IsNewNode="True" />
         <PropertyEditor Id="InBreakTimes" PropertyName="InBreakTimes" View="Case_InBreakTimes_ListView" IsNewNode="True" />
-        <PropertyEditor Id="InvestigationPolices" PropertyName="InvestigationPolices" View="Case_InvestigationPolices_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InvestigationPolices" PropertyName="InvestigationPolices" View="Case_InvestigationPolices_ListView_CaseInitial" IsNewNode="True" />
         <PropertyEditor Id="JNumber" PropertyName="JNumber" IsNewNode="True" />
         <PropertyEditor Id="KNumber" PropertyName="KNumber" IsNewNode="True" />
         <PropertyEditor Id="Linkings" PropertyName="Linkings" View="Case_Linkings_ListView" IsNewNode="True" />
@@ -171,35 +235,228 @@
       </Items>
       <Layout IsNewNode="True">
         <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
-          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="20.95808383233533" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="27.126805778491171" IsNewNode="True">
             <LayoutGroup Id="Case" Index="0" Direction="Horizontal" ShowCaption="True" Caption="案件信息" RelativeSize="100" IsNewNode="True">
-              <LayoutGroup Id="Case_col1" Index="0" ShowCaption="False" RelativeSize="49.929676511954995" IsNewNode="True">
-                <LayoutItem Id="CreationUser" ViewItem="CreationUser" ShowCaption="" Index="0" RelativeSize="23.913043478260871" IsNewNode="True" />
-                <LayoutItem Id="ANumber" ViewItem="ANumber" ShowCaption="" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
-                <LayoutItem Id="JNumber" ViewItem="JNumber" ShowCaption="" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
-                <LayoutItem Id="KNumber" ViewItem="KNumber" ShowCaption="" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
-                <LayoutItem Id="StartTime" ViewItem="StartTime" ShowCaption="" Index="4" RelativeSize="23.913043478260871" IsNewNode="True" />
+              <LayoutGroup Id="Case_col1" Index="0" ShowCaption="False" RelativeSize="49.809160305343511" IsNewNode="True">
+                <LayoutItem Id="ANumber" ViewItem="ANumber" ShowCaption="" Index="0" RelativeSize="23.134328358208954" IsNewNode="True" />
+                <LayoutItem Id="JNumber" ViewItem="JNumber" ShowCaption="" Index="1" RelativeSize="17.910447761194028" IsNewNode="True" />
+                <LayoutItem Id="KNumber" ViewItem="KNumber" ShowCaption="" Index="2" RelativeSize="17.910447761194028" IsNewNode="True" />
+                <LayoutItem Id="StartTime" ViewItem="StartTime" ShowCaption="" Index="3" RelativeSize="17.164179104477611" IsNewNode="True" />
+                <LayoutItem Id="Group" ShowCaption="True" ViewItem="Group" Index="4" RelativeSize="23.880597014925375" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Case_col2" Index="1" ShowCaption="False" RelativeSize="50.070323488045005" IsNewNode="True">
-                <LayoutItem Id="HappenedAddress" ViewItem="HappenedAddress" ShowCaption="" Index="0" RelativeSize="23.913043478260871" IsNewNode="True" />
-                <LayoutItem Id="Status" ViewItem="Status" ShowCaption="" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
-                <LayoutItem Id="PoliceStation" ViewItem="PoliceStation" ShowCaption="" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
-                <LayoutItem Id="Group" ViewItem="Group" ShowCaption="" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
-                <LayoutItem Id="ResearchJudgeDescription" ViewItem="ResearchJudgeDescription" ShowCaption="" Index="4" RelativeSize="23.913043478260871" IsNewNode="True" />
+              <LayoutGroup Id="Case_col2" Index="1" ShowCaption="False" RelativeSize="50.190839694656489" IsNewNode="True">
+                <LayoutItem Id="HappenedAddress" ViewItem="HappenedAddress" ShowCaption="" Index="0" RelativeSize="23.880597014925375" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" ShowCaption="" Index="1" RelativeSize="17.910447761194028" IsNewNode="True" />
+                <LayoutItem Id="PoliceStation" ViewItem="PoliceStation" ShowCaption="" Index="2" RelativeSize="17.910447761194028" IsNewNode="True" />
+                <LayoutItem Id="CreationUser" ViewItem="CreationUser" Index="3" RelativeSize="40.298507462686565" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="79.041916167664667" Caption="简要案情" IsNewNode="True">
-            <LayoutGroup Id="InvestigationPolices" ShowCaption="True" Caption="勘察人员" Index="0" RelativeSize="25.303030303030305" IsNewNode="True">
-              <LayoutItem Id="InvestigationPolices" ViewItem="InvestigationPolices" Index="0" RelativeSize="100" IsNewNode="True" />
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="72.873194221508825" Caption="简要案情" IsNewNode="True">
+            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="22.246696035242291" Caption="简要案情" IsNewNode="True">
+              <LayoutItem Id="Description" ShowCaption="False" ViewItem="Description" Index="0" RelativeSize="100" IsNewNode="True" />
             </LayoutGroup>
-            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="74.6969696969697" Caption="简要案情" IsNewNode="True">
+            <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="77.7533039647577" Caption="指纹取数" IsNewNode="True">
+              <LayoutItem Id="FingrePrints" ViewItem="FingrePrints" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Case_DetailView_FootPrint" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="足迹提取数" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="ANumber" PropertyName="ANumber" IsNewNode="True" />
+        <PropertyEditor Id="CreationUser" PropertyName="CreationUser" IsNewNode="True" />
+        <PropertyEditor Id="Criminals" PropertyName="Criminals" View="Case_Criminals_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Description" PropertyName="Description" IsNewNode="True" />
+        <PropertyEditor Id="DNAs" PropertyName="DNAs" View="Case_DNAs_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FinancialTypes" PropertyName="FinancialTypes" View="Case_FinancialTypes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FingrePrints" PropertyName="FingrePrints" View="Case_FingrePrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FootPrints" PropertyName="FootPrints" View="Case_FootPrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Group" PropertyName="Group" AllowEdit="False" IsNewNode="True" />
+        <ActionContainerViewItem Id="groupSelection" ActionContainer="CaseGroupSelection" Caption="选择现勘组" IsNewNode="True" />
+        <PropertyEditor Id="HappenedAddress" PropertyName="HappenedAddress" IsNewNode="True" />
+        <PropertyEditor Id="InBreakHabits" PropertyName="InBreakHabits" View="Case_InBreakHabits_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakMethods" PropertyName="InBreakMethods" View="Case_InBreakMethods_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakPlaces" PropertyName="InBreakPlaces" View="Case_InBreakPlaces_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakTimes" PropertyName="InBreakTimes" View="Case_InBreakTimes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InvestigationPolices" PropertyName="InvestigationPolices" View="Case_InvestigationPolices_ListView_CaseInitial" IsNewNode="True" />
+        <PropertyEditor Id="JNumber" PropertyName="JNumber" IsNewNode="True" />
+        <PropertyEditor Id="KNumber" PropertyName="KNumber" IsNewNode="True" />
+        <PropertyEditor Id="Linkings" PropertyName="Linkings" View="Case_Linkings_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="PoliceStation" PropertyName="PoliceStation" IsNewNode="True" />
+        <PropertyEditor Id="StartTime" PropertyName="StartTime" IsNewNode="True" />
+        <PropertyEditor Id="Status" PropertyName="Status" IsNewNode="True" />
+        <PropertyEditor Id="Videos" PropertyName="Videos" View="Case_Videos_ListView" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="18.08383233532934" IsNewNode="True">
+            <LayoutGroup Id="Case" Index="0" Direction="Horizontal" ShowCaption="True" Caption="案件信息" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Case_col1" Index="0" ShowCaption="False" RelativeSize="49.929676511954995" IsNewNode="True">
+                <LayoutItem Id="ANumber" ViewItem="ANumber" ShowCaption="" Index="0" RelativeSize="28.94736842105263" IsNewNode="True" />
+                <LayoutItem Id="JNumber" ViewItem="JNumber" ShowCaption="" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="KNumber" ViewItem="KNumber" ShowCaption="" Index="2" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="StartTime" ViewItem="StartTime" ShowCaption="" Index="3" RelativeSize="28.94736842105263" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Case_col2" Index="1" ShowCaption="False" RelativeSize="50.070323488045005" IsNewNode="True">
+                <LayoutItem Id="HappenedAddress" ViewItem="HappenedAddress" ShowCaption="" Index="0" RelativeSize="28.94736842105263" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" ShowCaption="" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="PoliceStation" ViewItem="PoliceStation" ShowCaption="" Index="2" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="CreationUser" ViewItem="CreationUser" Index="3" RelativeSize="28.94736842105263" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="81.916167664670652" Caption="简要案情" IsNewNode="True">
+            <LayoutGroup Id="InvestigationPolices" ShowCaption="True" Caption="勘察组人员" Index="0" RelativeSize="31.871345029239766" IsNewNode="True">
+              <LayoutGroup Id="Autod90425b0-be28-40b2-9830-14d12700b5c7" ShowCaption="False" Caption="Autod90425b0-be28-40b2-9830-14d12700b5c7(16)" Index="0" RelativeSize="34.736842105263158" IsNewNode="True">
+                <LayoutItem Id="groupSelection" ViewItem="groupSelection" Index="0" RelativeSize="53.030303030303031" SizeConstraintsType="Default" MinSize="114, 42" IsNewNode="True" />
+                <LayoutItem Id="Group" ShowCaption="False" ViewItem="Group" Index="1" RelativeSize="46.969696969696969" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="InvestigationPolices" ViewItem="InvestigationPolices" Index="1" RelativeSize="65.263157894736835" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="68.128654970760238" Caption="简要案情" IsNewNode="True">
               <LayoutItem Id="Description" ShowCaption="False" ViewItem="Description" Index="0" RelativeSize="100" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <DetailView Id="Case_DetailView_Initial" ClassName="SiteInvestigation.Module.BusinessObjects.Case" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="ANumber" PropertyName="ANumber" IsNewNode="True" />
+        <PropertyEditor Id="CreationUser" PropertyName="CreationUser" IsNewNode="True" />
+        <PropertyEditor Id="Criminals" PropertyName="Criminals" View="Case_Criminals_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Description" PropertyName="Description" IsNewNode="True" />
+        <PropertyEditor Id="DNAs" PropertyName="DNAs" View="Case_DNAs_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FinancialTypes" PropertyName="FinancialTypes" View="Case_FinancialTypes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FingrePrints" PropertyName="FingrePrints" View="Case_FingrePrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FootPrints" PropertyName="FootPrints" View="Case_FootPrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Group" PropertyName="Group" AllowEdit="False" IsNewNode="True" />
+        <ActionContainerViewItem Id="groupSelection" ActionContainer="CaseGroupSelection" Caption="选择现勘组" IsNewNode="True" />
+        <PropertyEditor Id="HappenedAddress" PropertyName="HappenedAddress" IsNewNode="True" />
+        <PropertyEditor Id="InBreakHabits" PropertyName="InBreakHabits" View="Case_InBreakHabits_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakMethods" PropertyName="InBreakMethods" View="Case_InBreakMethods_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakPlaces" PropertyName="InBreakPlaces" View="Case_InBreakPlaces_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakTimes" PropertyName="InBreakTimes" View="Case_InBreakTimes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InvestigationPolices" PropertyName="InvestigationPolices" View="Case_InvestigationPolices_ListView_CaseInitial" IsNewNode="True" />
+        <PropertyEditor Id="JNumber" PropertyName="JNumber" IsNewNode="True" />
+        <PropertyEditor Id="KNumber" PropertyName="KNumber" IsNewNode="True" />
+        <PropertyEditor Id="Linkings" PropertyName="Linkings" View="Case_Linkings_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="PoliceStation" PropertyName="PoliceStation" IsNewNode="True" />
+        <PropertyEditor Id="StartTime" PropertyName="StartTime" IsNewNode="True" />
+        <PropertyEditor Id="Status" PropertyName="Status" IsNewNode="True" />
+        <PropertyEditor Id="Videos" PropertyName="Videos" View="Case_Videos_ListView" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="18.08383233532934" IsNewNode="True">
+            <LayoutGroup Id="Case" Index="0" Direction="Horizontal" ShowCaption="True" Caption="案件信息" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Case_col1" Index="0" ShowCaption="False" RelativeSize="49.929676511954995" IsNewNode="True">
+                <LayoutItem Id="ANumber" ViewItem="ANumber" ShowCaption="" Index="0" RelativeSize="28.94736842105263" IsNewNode="True" />
+                <LayoutItem Id="JNumber" ViewItem="JNumber" ShowCaption="" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="KNumber" ViewItem="KNumber" ShowCaption="" Index="2" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="StartTime" ViewItem="StartTime" ShowCaption="" Index="3" RelativeSize="28.94736842105263" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Case_col2" Index="1" ShowCaption="False" RelativeSize="50.070323488045005" IsNewNode="True">
+                <LayoutItem Id="HappenedAddress" ViewItem="HappenedAddress" ShowCaption="" Index="0" RelativeSize="28.94736842105263" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" ShowCaption="" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="PoliceStation" ViewItem="PoliceStation" ShowCaption="" Index="2" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="CreationUser" ViewItem="CreationUser" Index="3" RelativeSize="28.94736842105263" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="81.916167664670652" Caption="简要案情" IsNewNode="True">
+            <LayoutGroup Id="InvestigationPolices" ShowCaption="True" Caption="勘察组人员" Index="0" RelativeSize="31.871345029239766" IsNewNode="True">
+              <LayoutGroup Id="Autod90425b0-be28-40b2-9830-14d12700b5c7" ShowCaption="False" Caption="Autod90425b0-be28-40b2-9830-14d12700b5c7(16)" Direction="Vertical" Index="0" RelativeSize="34.736842105263158" IsNewNode="True">
+                <LayoutItem Id="groupSelection" ViewItem="groupSelection" Index="0" RelativeSize="53.030303030303031" SizeConstraintsType="Default" MinSize="114, 42" IsNewNode="True" />
+                <LayoutItem Id="Group" ShowCaption="False" ViewItem="Group" Index="1" RelativeSize="46.969696969696969" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="InvestigationPolices" ViewItem="InvestigationPolices" Index="1" RelativeSize="65.263157894736835" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="68.128654970760238" Caption="简要案情" IsNewNode="True">
+              <LayoutItem Id="Description" ShowCaption="False" ViewItem="Description" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Case_DetailView_Video" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="视频提取数" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="ANumber" PropertyName="ANumber" IsNewNode="True" />
+        <PropertyEditor Id="CreationUser" PropertyName="CreationUser" IsNewNode="True" />
+        <PropertyEditor Id="Criminals" PropertyName="Criminals" View="Case_Criminals_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Description" PropertyName="Description" IsNewNode="True" />
+        <PropertyEditor Id="DNAs" PropertyName="DNAs" View="Case_DNAs_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FinancialTypes" PropertyName="FinancialTypes" View="Case_FinancialTypes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FingrePrints" PropertyName="FingrePrints" View="Case_FingrePrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="FootPrints" PropertyName="FootPrints" View="Case_FootPrints_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Group" PropertyName="Group" AllowEdit="False" IsNewNode="True" />
+        <ActionContainerViewItem Id="groupSelection" ActionContainer="CaseGroupSelection" Caption="选择现勘组" IsNewNode="True" />
+        <PropertyEditor Id="HappenedAddress" PropertyName="HappenedAddress" IsNewNode="True" />
+        <PropertyEditor Id="InBreakHabits" PropertyName="InBreakHabits" View="Case_InBreakHabits_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakMethods" PropertyName="InBreakMethods" View="Case_InBreakMethods_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakPlaces" PropertyName="InBreakPlaces" View="Case_InBreakPlaces_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InBreakTimes" PropertyName="InBreakTimes" View="Case_InBreakTimes_ListView" IsNewNode="True" />
+        <PropertyEditor Id="InvestigationPolices" PropertyName="InvestigationPolices" View="Case_InvestigationPolices_ListView_CaseInitial" IsNewNode="True" />
+        <PropertyEditor Id="JNumber" PropertyName="JNumber" IsNewNode="True" />
+        <PropertyEditor Id="KNumber" PropertyName="KNumber" IsNewNode="True" />
+        <PropertyEditor Id="Linkings" PropertyName="Linkings" View="Case_Linkings_ListView" IsNewNode="True" />
+        <PropertyEditor Id="Oid" PropertyName="Oid" IsNewNode="True" />
+        <PropertyEditor Id="PoliceStation" PropertyName="PoliceStation" IsNewNode="True" />
+        <PropertyEditor Id="StartTime" PropertyName="StartTime" IsNewNode="True" />
+        <PropertyEditor Id="Status" PropertyName="Status" IsNewNode="True" />
+        <PropertyEditor Id="Videos" PropertyName="Videos" View="Case_Videos_ListView" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="18.08383233532934" IsNewNode="True">
+            <LayoutGroup Id="Case" Index="0" Direction="Horizontal" ShowCaption="True" Caption="案件信息" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Case_col1" Index="0" ShowCaption="False" RelativeSize="49.929676511954995" IsNewNode="True">
+                <LayoutItem Id="ANumber" ViewItem="ANumber" ShowCaption="" Index="0" RelativeSize="28.94736842105263" IsNewNode="True" />
+                <LayoutItem Id="JNumber" ViewItem="JNumber" ShowCaption="" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="KNumber" ViewItem="KNumber" ShowCaption="" Index="2" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="StartTime" ViewItem="StartTime" ShowCaption="" Index="3" RelativeSize="28.94736842105263" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Case_col2" Index="1" ShowCaption="False" RelativeSize="50.070323488045005" IsNewNode="True">
+                <LayoutItem Id="HappenedAddress" ViewItem="HappenedAddress" ShowCaption="" Index="0" RelativeSize="28.94736842105263" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" ShowCaption="" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="PoliceStation" ViewItem="PoliceStation" ShowCaption="" Index="2" RelativeSize="21.05263157894737" IsNewNode="True" />
+                <LayoutItem Id="CreationUser" ViewItem="CreationUser" Index="3" RelativeSize="28.94736842105263" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="1" ShowCaption="False" RelativeSize="81.916167664670652" Caption="简要案情" IsNewNode="True">
+            <LayoutGroup Id="InvestigationPolices" ShowCaption="True" Caption="勘察组人员" Index="0" RelativeSize="31.871345029239766" IsNewNode="True">
+              <LayoutGroup Id="Autod90425b0-be28-40b2-9830-14d12700b5c7" ShowCaption="False" Caption="Autod90425b0-be28-40b2-9830-14d12700b5c7(16)" Index="0" RelativeSize="34.736842105263158" IsNewNode="True">
+                <LayoutItem Id="groupSelection" ViewItem="groupSelection" Index="0" RelativeSize="53.030303030303031" SizeConstraintsType="Default" MinSize="114, 42" IsNewNode="True" />
+                <LayoutItem Id="Group" ShowCaption="False" ViewItem="Group" Index="1" RelativeSize="46.969696969696969" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="InvestigationPolices" ViewItem="InvestigationPolices" Index="1" RelativeSize="65.263157894736835" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="68.128654970760238" Caption="简要案情" IsNewNode="True">
+              <LayoutItem Id="Description" ShowCaption="False" ViewItem="Description" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Case_InvestigationPolices_ListView_CaseInitial" ClassName="SiteInvestigation.Module.BusinessObjects.Police" AllowNew="False" AllowLink="False" AllowUnlink="False" AllowDelete="False" MasterDetailMode="ListViewOnly" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="ChangePasswordOnFirstLogon" PropertyName="ChangePasswordOnFirstLogon" Width="50" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="IsActive" PropertyName="IsActive" Width="50" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="UserName" PropertyName="UserName" Width="400" SortIndex="-1" SortOrder="None" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Number" PropertyName="Number" Width="63" Index="0" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" Width="51" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Position" PropertyName="Position" Width="62" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Department" PropertyName="Department" Width="86" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="PoliceStation" PropertyName="PoliceStation" Width="90" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="80" Index="5" IsNewNode="True" />
+      </Columns>
+    </ListView>
     <ListView Id="Case_ListView" DetailViewID="Case_DetailView_Initial">
       <Columns>
         <ColumnInfo Id="ANumber" Index="0" />
@@ -224,6 +481,79 @@
         <ColumnInfo Id="NumberOfCriminal" PropertyName="NumberOfCriminal" Index="9" IsNewNode="True" />
       </Columns>
     </ListView>
+    <ListView Id="Case_ListView_DNA" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="DNA提取数" MasterDetailView="Case_DetailView_DNA" DetailViewID="Case_DetailView_DNA" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="AnalysisDescription" PropertyName="AnalysisDescription" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ANumber" PropertyName="ANumber" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="JNumber" PropertyName="JNumber" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="KNumber" PropertyName="KNumber" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="CreationUser" PropertyName="CreationUser" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="StartTime" PropertyName="StartTime" Width="70" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="HappenedAddress" PropertyName="HappenedAddress" Width="70" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Width="70" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PoliceStation" PropertyName="PoliceStation" Width="70" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="Group" PropertyName="Group" Width="70" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="NumberOfCriminal" PropertyName="NumberOfCriminal" Width="50" Index="9" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Case_ListView_FingrePrint" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="指纹提取数" DetailViewID="Case_DetailView_FingrePrint" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="AnalysisDescription" PropertyName="AnalysisDescription" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ANumber" PropertyName="ANumber" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="JNumber" PropertyName="JNumber" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="KNumber" PropertyName="KNumber" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="CreationUser" PropertyName="CreationUser" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="StartTime" PropertyName="StartTime" Width="70" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="HappenedAddress" PropertyName="HappenedAddress" Width="70" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Width="70" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PoliceStation" PropertyName="PoliceStation" Width="70" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="Group" PropertyName="Group" Width="70" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="NumberOfCriminal" PropertyName="NumberOfCriminal" Width="50" Index="9" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Case_ListView_FootPrint" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="足迹提取数" DetailViewID="Case_DetailView_FootPrint" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="AnalysisDescription" PropertyName="AnalysisDescription" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ANumber" PropertyName="ANumber" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="JNumber" PropertyName="JNumber" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="KNumber" PropertyName="KNumber" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="CreationUser" PropertyName="CreationUser" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="StartTime" PropertyName="StartTime" Width="70" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="HappenedAddress" PropertyName="HappenedAddress" Width="70" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Width="70" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PoliceStation" PropertyName="PoliceStation" Width="70" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="Group" PropertyName="Group" Width="70" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="NumberOfCriminal" PropertyName="NumberOfCriminal" Width="50" Index="9" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Case_ListView_Video" ClassName="SiteInvestigation.Module.BusinessObjects.Case" Caption="视频提取数" DetailViewID="Case_DetailView_Video" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="AnalysisDescription" PropertyName="AnalysisDescription" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Oid" PropertyName="Oid" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="ANumber" PropertyName="ANumber" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="JNumber" PropertyName="JNumber" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="KNumber" PropertyName="KNumber" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="CreationUser" PropertyName="CreationUser" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="StartTime" PropertyName="StartTime" Width="70" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="HappenedAddress" PropertyName="HappenedAddress" Width="70" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Status" PropertyName="Status" Width="70" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="PoliceStation" PropertyName="PoliceStation" Width="70" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="Group" PropertyName="Group" Width="70" Index="8" IsNewNode="True" />
+        <ColumnInfo Id="NumberOfCriminal" PropertyName="NumberOfCriminal" Width="50" Index="9" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DNA_DetailView">
+      <Items>
+        <PropertyEditor Id="Criminal" LookupEditorMode="AllItemsWithSearch" />
+      </Items>
+    </DetailView>
     <ListView Id="Group_Polices_ListView">
       <Columns>
         <ColumnInfo Id="UserName" Index="-1" />
