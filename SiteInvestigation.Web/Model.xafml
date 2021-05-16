@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application>
+<Application PreferredLanguage="zh-Hans">
+  <ActionDesign>
+    <Actions>
+      <Action Id="DialogCancel" Caption="取消" />
+      <Action Id="DialogClose" Caption="关闭" />
+      <Action Id="DialogOK" ToolTip="确定" />
+      <Action Id="FullTextSearch" Caption="文本过滤" ShortCaption="搜索" NullValuePrompt="全文搜索..." />
+      <Action Id="Link" Caption="链接" />
+      <Action Id="SetFilter" Caption="过滤" />
+      <Action Id="Unlink" Caption="删除" />
+    </Actions>
+  </ActionDesign>
   <NavigationItems>
     <Items>
       <Item Id="@4494f5a1-b7da-4e79-85fc-d6aaba8fce39">

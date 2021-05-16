@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Case_DetailView_Initial">
+      <Items Id="Items">
+        <ActionContainerViewItem Id="PicturefShowsup" ActionContainer="PictureShowsup" />
+      </Items>
+    </DetailView>
+    <DetailView Id="Case_DetailView_Analyze">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutItem Id="ResearchJudgeDescription" ViewItem="ResearchJudgeDescription" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

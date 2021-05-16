@@ -74,5 +74,11 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         public const string CASELINKING_POLICE = "Case-Linking-Police";
 
+        public const string VIDEO_SCREENSHOT = "Video-Screenshot";
+
+        public const string SCREENSHOT_CRIMINAL = "Screenshot-Criminal";
+
+        public const string CASE_IMAGE = "Case-Image";
+
     }
 }

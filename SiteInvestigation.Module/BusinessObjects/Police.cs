@@ -17,6 +17,7 @@ using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
 namespace SiteInvestigation.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [XafDefaultProperty(nameof(Name))]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]

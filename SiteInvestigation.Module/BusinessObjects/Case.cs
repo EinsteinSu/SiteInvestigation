@@ -82,6 +82,22 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
+        private DateTime _HappendTime;
+        [XafDisplayName("案发时间")]
+        public DateTime HappendTime
+        {
+            get { return _HappendTime; }
+            set { SetPropertyValue<DateTime>(nameof(HappendTime), ref _HappendTime, value); }
+        }
+
+        private string _CaseProperty;
+        [XafDisplayName("案件性质")]
+        public string CaseProperty
+        {
+            get { return _CaseProperty; }
+            set { SetPropertyValue<string>(nameof(CaseProperty), ref _CaseProperty, value); }
+        }
+
         private string _HappenedAddress;
         [XafDisplayName("案发地址")]
         public string HappenedAddress
@@ -90,6 +106,24 @@ namespace SiteInvestigation.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(HappenedAddress), ref _HappenedAddress, value); }
         }
 
+
+
+        private DateTime _ArrivalTime;
+        [XafDisplayName("到场时间")]
+        public DateTime ArrivalTime
+        {
+            get { return _ArrivalTime; }
+            set { SetPropertyValue<DateTime>(nameof(ArrivalTime), ref _ArrivalTime, value); }
+        }
+
+
+        private DateTime _LeavalTime;
+        [XafDisplayName("离开时间")]
+        public DateTime LeavalTime
+        {
+            get { return _LeavalTime; }
+            set { SetPropertyValue<DateTime>(nameof(LeavalTime), ref _LeavalTime, value); }
+        }
 
         private string _Description;
         [Size(3000)]
@@ -122,6 +156,7 @@ namespace SiteInvestigation.Module.BusinessObjects
         [Association(FKCollection.CASE_GROUP)]
         //todo: when the group selected clear and insert the polices
         [XafDisplayName("指定勘察组别")]
+        [ImmediatePostData]
         public Group Group
         {
             get { return _Group; }
@@ -131,10 +166,33 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         [Association(FKCollection.CASE_INVERSTITATION_POLICE)]
         [XafDisplayName("勘察人员")]
-
         public XPCollection<Police> InvestigationPolices
         {
             get { return GetCollection<Police>(nameof(InvestigationPolices)); }
+        }
+
+        [XafDisplayName("勘察人员")]
+        public string InvestigationPolicesDisplay
+        {
+            get
+            {
+                var names = string.Empty;
+                if (InvestigationPolices != null)
+                {
+                    names = string.Join(",", InvestigationPolices.Select(s => s.Name));
+                }
+                return names;
+            }
+        }
+
+
+        [Association(FKCollection.CASE_IMAGE)]
+        [XafDisplayName("现场照片")]
+        [VisibleInListView(false)]
+        [VisibleInDetailView(false)]
+        public XPCollection<CaseImage> Images
+        {
+            get { return GetCollection<CaseImage>(nameof(Images)); }
         }
 
 

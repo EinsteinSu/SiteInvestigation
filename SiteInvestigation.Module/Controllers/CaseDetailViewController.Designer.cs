@@ -31,6 +31,8 @@ namespace SiteInvestigation.Module.Controllers
         {
             this.components = new System.ComponentModel.Container();
             this.groupSelection = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
+            this.casePropertySelection = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
+            this.pictureShowsup = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
             // 
             // groupSelection
             // 
@@ -48,9 +50,41 @@ namespace SiteInvestigation.Module.Controllers
             this.groupSelection.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.groupSelection_CustomizePopupWindowParams);
             this.groupSelection.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.groupSelection_Execute);
             // 
+            // casePropertySelection
+            // 
+            this.casePropertySelection.AcceptButtonCaption = null;
+            this.casePropertySelection.CancelButtonCaption = null;
+            this.casePropertySelection.Caption = "选择";
+            this.casePropertySelection.Category = "CasePropertySelection";
+            this.casePropertySelection.ConfirmationMessage = null;
+            this.casePropertySelection.Id = "9dfdf3d8-ebab-4a76-aee9-c47cf20f6700";
+            this.casePropertySelection.TargetObjectType = typeof(SiteInvestigation.Module.BusinessObjects.Case);
+            this.casePropertySelection.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.casePropertySelection.ToolTip = null;
+            this.casePropertySelection.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.casePropertySelection.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.casePropertySelection_CustomizePopupWindowParams);
+            this.casePropertySelection.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.casePropertySelection_Execute);
+            // 
+            // pictureShowsup
+            // 
+            this.pictureShowsup.AcceptButtonCaption = null;
+            this.pictureShowsup.CancelButtonCaption = null;
+            this.pictureShowsup.Caption = "图片";
+            this.pictureShowsup.Category = "Edit";
+            this.pictureShowsup.ConfirmationMessage = null;
+            this.pictureShowsup.Id = "f462b3e1-bc60-4f21-a0a7-4ed2b18be7d9";
+            this.pictureShowsup.TargetObjectType = typeof(SiteInvestigation.Module.BusinessObjects.Case);
+            this.pictureShowsup.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.pictureShowsup.ToolTip = null;
+            this.pictureShowsup.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.pictureShowsup.CustomizePopupWindowParams += new DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventHandler(this.pictureShowsup_CustomizePopupWindowParams);
+            this.pictureShowsup.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.pictureShowsup_Execute);
+            // 
             // CaseDetailViewController
             // 
             this.Actions.Add(this.groupSelection);
+            this.Actions.Add(this.casePropertySelection);
+            this.Actions.Add(this.pictureShowsup);
             this.TargetObjectType = typeof(SiteInvestigation.Module.BusinessObjects.Case);
             this.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
 
@@ -59,5 +93,7 @@ namespace SiteInvestigation.Module.Controllers
         #endregion
 
         private DevExpress.ExpressApp.Actions.PopupWindowShowAction groupSelection;
+        private DevExpress.ExpressApp.Actions.PopupWindowShowAction casePropertySelection;
+        private DevExpress.ExpressApp.Actions.PopupWindowShowAction pictureShowsup;
     }
 }

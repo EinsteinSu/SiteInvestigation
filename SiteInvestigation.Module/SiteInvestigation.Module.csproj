@@ -213,7 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\Case.cs" />
+    <Compile Include="BusinessObjects\CaseImage.cs" />
     <Compile Include="BusinessObjects\CaseLinking.cs" />
+    <Compile Include="BusinessObjects\CaseProperty.cs" />
     <Compile Include="BusinessObjects\Criminal.cs" />
     <Compile Include="BusinessObjects\Department.cs" />
     <Compile Include="BusinessObjects\DNA.cs" />
@@ -231,11 +233,18 @@
     <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\SiteNotification.cs" />
     <Compile Include="BusinessObjects\Video.cs" />
+    <Compile Include="BusinessObjects\VideoScreenshot.cs" />
     <Compile Include="Controllers\CaseDetailViewController.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\CaseDetailViewController.Designer.cs">
       <DependentUpon>CaseDetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CriminalDetailViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CriminalDetailViewController.Designer.cs">
+      <DependentUpon>CriminalDetailViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Helpers\MessageHelper.cs" />
@@ -253,6 +262,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controllers\CaseDetailViewController.resx">
       <DependentUpon>CaseDetailViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\CriminalDetailViewController.resx">
+      <DependentUpon>CriminalDetailViewController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -292,6 +304,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="UnusableNodes3.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnusableNodes4.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

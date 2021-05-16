@@ -485,6 +485,10 @@
   <ItemGroup>
     <Content Include="Model.Desktop.xafml" />
     <Content Include="Model.Tablet.xafml" />
+    <Content Include="Model_zh-Hans.xafml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="ReadMe.txt" />
     <Content Include="Web.config" />
   </ItemGroup>

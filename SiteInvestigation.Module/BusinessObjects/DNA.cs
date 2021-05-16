@@ -44,6 +44,17 @@ namespace SiteInvestigation.Module.BusinessObjects
         }
 
 
+        private string _NyNumber;
+        [XafDisplayName("捺印编号"),ToolTip("捺印编号")]
+        public string NyNumber
+        {
+            get { return _NyNumber; }
+            set { SetPropertyValue<string>(nameof(NyNumber), ref _NyNumber, value); }
+        }
+
+
+
+
         private Police _ExtractPolice;
         [Association(FKCollection.DNA_EXTRACT_POLICE)]
         [XafDisplayName("提取人")]
