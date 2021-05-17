@@ -348,6 +348,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CaseDetailViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CaseDetailViewController.Designer.cs">
+      <DependentUpon>CaseDetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDNACreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDNACreation.Designer.cs">
+      <DependentUpon>FrmDNACreation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinModule.cs">
       <SubType>Component</SubType>
@@ -357,6 +369,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\CaseDetailViewController.resx">
+      <DependentUpon>CaseDetailViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDNACreation.resx">
+      <DependentUpon>FrmDNACreation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
