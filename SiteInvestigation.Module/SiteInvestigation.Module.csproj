@@ -247,6 +247,7 @@
       <DependentUpon>CriminalDetailViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
+    <Compile Include="Extensions\FileSystemStoreObject.cs" />
     <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>

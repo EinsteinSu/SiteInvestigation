@@ -6,11 +6,13 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
+using SiteInvestigation.Module.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using AggregatedAttribute = DevExpress.Xpo.AggregatedAttribute;
 
 namespace SiteInvestigation.Module.BusinessObjects
 {
@@ -34,15 +36,23 @@ namespace SiteInvestigation.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (VideoData != null)
+                VideoData.Type = StorageType.Video;
+        }
 
-        private FileData _VideoData;
+
+        private FileSystemStoreObject _VideoData;
         [XafDisplayName("视频文件")]
-        [FileTypeFilter("视频文件", 1, "*.mp4", "*.mkv", "*.avi", "*.flv", "*.mpeg","*.mov")]
+        [FileTypeFilter("视频文件", 1, "*.mp4", "*.mkv", "*.avi", "*.flv", "*.mpeg", "*.mov")]
         [FileTypeFilter("所有文件", 2, "*.*")]
-        public FileData VideoData
+        [Aggregated, ExpandObjectMembers(ExpandObjectMembers.Never), ImmediatePostData]
+        public FileSystemStoreObject VideoData
         {
             get { return _VideoData; }
-            set { SetPropertyValue<FileData>(nameof(VideoData), ref _VideoData, value); }
+            set { SetPropertyValue<FileSystemStoreObject>(nameof(VideoData), ref _VideoData, value); }
         }
 
 

@@ -84,6 +84,8 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         private DateTime _HappendTime;
         [XafDisplayName("案发时间")]
+        [ModelDefault("DisplayFormat", "{0:MM.dd.yyyy hh:mm:ss}")]
+        [ModelDefault("EditMask", "MM.dd.yyyy hh:mm:ss")]
         public DateTime HappendTime
         {
             get { return _HappendTime; }
@@ -110,6 +112,8 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         private DateTime _ArrivalTime;
         [XafDisplayName("到场时间")]
+        [ModelDefault("DisplayFormat", "{0:MM.dd.yyyy hh:mm:ss}")]
+        [ModelDefault("EditMask", "MM.dd.yyyy hh:mm:ss")]
         public DateTime ArrivalTime
         {
             get { return _ArrivalTime; }
@@ -119,6 +123,8 @@ namespace SiteInvestigation.Module.BusinessObjects
 
         private DateTime _LeavalTime;
         [XafDisplayName("离开时间")]
+        [ModelDefault("DisplayFormat", "{0:MM.dd.yyyy hh:mm:ss}")]
+        [ModelDefault("EditMask", "MM.dd.yyyy hh:mm:ss")]
         public DateTime LeavalTime
         {
             get { return _LeavalTime; }
